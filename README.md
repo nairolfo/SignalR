@@ -1,12 +1,14 @@
-# Centro Real-Time Events and Hubs
+This document describes how to use the SignalR API of the Central framework.
 
-Centro provides real-time communication with [ASP.NET SignalR](https://docs.microsoft.com/en-us/aspnet/signalr/overview/getting-started/introduction-to-signalr#what-is-signalr). It supports WebSocket and fallback to other mechanisms when that technology isn't supported on the client or server.
+# Central Real-Time Events and Hubs
 
-Note: Centro uses ASP.NET SignalR, not ASP.NET Core SignalR.
+Central provides real-time communication with [ASP.NET SignalR](https://docs.microsoft.com/en-us/aspnet/signalr/overview/getting-started/introduction-to-signalr#what-is-signalr). It supports WebSocket and fallback to other mechanisms when that technology isn't supported on the client or server.
 
-The following sections describe the [SignalR Hubs](https://docs.microsoft.com/en-us/aspnet/signalr/overview/getting-started/introduction-to-signalr#connections-and-hubs) used by Centro for client/server communication.
+Note: Central uses ASP.NET SignalR, not ASP.NET Core SignalR.
 
-## Centro Hubs
+The following sections describe the [SignalR Hubs](https://docs.microsoft.com/en-us/aspnet/signalr/overview/getting-started/introduction-to-signalr#connections-and-hubs) used by Central for client/server communication.
+
+## Central Hubs
 
 #### ResourceEventHub
 
@@ -46,9 +48,9 @@ Provides real-time events for Pipeline Jobs. Exposes the following server method
 
 ## Usage
 
-This section contains short examples showing how to use the Centro Hubs.
+This section contains short examples showing how to use the Central Hubs.
 
-Centro Hubs are accessed at http://localhost/Centro/signalr and require authorization.
+Central Hubs are accessed at http://localhost/Central/signalr and require authorization.
 
 #### .NET Client (C#)
 
@@ -59,13 +61,13 @@ Connecting to a hub to receive real-time updates involves the following steps:
 1. Register an event handler with the proxy
 1. Start the connection
 
-Instances of `HubConnection` and proxies are usually long-lived. You use the `HubConnection` instance to control the connection to the server and the proxy instances to interact with the Centro Hubs.
+Instances of `HubConnection` and proxies are usually long-lived. You use the `HubConnection` instance to control the connection to the server and the proxy instances to interact with the Central Hubs.
 You dispose the instance of `HubConnection` when you don't need it anymore.
 
 Example:
 
 ```csharp
-var hub = new HubConnection("http://localhost/Centro", true))
+var hub = new HubConnection("http://localhost/central", true))
 // Dispose hub once you don't need it anymore
 
 IHubProxy resourceHubProxy = hub.CreateHubProx("ResourceEventHub");
